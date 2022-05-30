@@ -1,0 +1,284 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: arial, sans-serif;
+}
+
+.container {
+    width: auto;
+    height: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.headTag {
+    height: 50px;
+    background-color: #0c3197;
+    color: #fff;
+    font-size: 12px;
+    align-items: center;
+    display: flex;
+    font-weight: 400px;
+    padding-left: 80px;
+    margin-top: 5px
+}
+
+.inputField {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+    color: #0c3197;
+    font-size: 12px;
+    margin-bottom: 20px;
+
+}
+
+.buttonWrapper {
+    height: 50px;
+    background-color: #e8e8e8;
+    display: flex;
+    align-items: center;
+    padding-left: 110px;
+    border-top: 1px solid #8d9abb;
+}
+
+.userSection {
+    border: solid #394d83 1px;
+    border-top: none;
+    margin-bottom: 10px;
+    border-bottom: solid #394d83 2px;
+    border-radius: 4px;
+}
+
+.nameTag {
+    background-color: #c1cce9;
+    font-size: 12px;
+
+}
+
+.titleName {
+    border-collapse: collapse;
+    margin: auto;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+tr {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th, td {
+    text-align: left;
+    font-size: 12px;
+    padding-left: 150px;
+    height: 50px;
+}
+
+td {
+    color: #3151a8;
+}
+
+.saveBtn {
+    width: 100px;
+    background-color: #394d83;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-right: 20px;
+    padding: 5px;
+}
+
+
+.saveBtnimg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.saveBtnimg img {
+
+    cursor: pointer;
+    font-weight: bold;
+    height: 15px;
+    padding-bottom: 2px;
+    width: 15px;
+}
+
+.cancelBtn img {
+
+    cursor: pointer;
+    font-weight: bold;
+    height: 15px;
+    padding-bottom: 2px;
+    width: 15px;
+}
+
+.cancelBtn {
+    width: 100px;
+    height: 30px;
+    border: solid black 1px;
+    border-radius: 4px;
+}
+
+.cancelBtnimg {
+    display: flex;
+    color: #2f4fa6;
+
+}
+
+.cancelBtnimg p {
+    margin: 0px;
+}
+
+.saveBtnimg p {
+    margin: 0px;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    color: #0c3197;
+    font-weight: bold;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 95px;
+    padding-right: 110px;
+}
+
+
+label {
+    font-weight: bold;
+    width: 130px;
+
+}
+
+#selecttitle {
+    width: 274px;
+    height: 50px;
+    padding-left: 10px;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+    border-color: #e8e8e8;
+}
+
+#fname {
+    width: 258px;
+    height: 44px;
+    padding-left: 10px;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+    border-color: #e8e8e8;
+
+}
+
+#lname {
+    width: 258px;
+    height: 44px;
+    padding-left: 10px;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+    border-color: #e8e8e8;
+
+}
+
+#uname {
+    width: 258px;
+    height: 44px;
+    padding-left: 10px;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+    border-color: #e8e8e8;
+
+}
+
+#email {
+    width: 258px;
+    height: 44px;
+    padding-left: 10px;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+    border-color: #e8e8e8;
+
+}
+
+td:nth-child(2) {
+    padding: 0px;
+}
+
+th:nth-child(2) {
+    padding: 0px;
+}
+
+#dvTable {
+
+    border: none;
+
+}
+
+select {
+    color: #9e9e9e;
+}
+
+option:not(:first-of-type) {
+    color: black;
+}
+
+.pageBar {
+    margin-top: 30px;
+    display: flex;
+    border-radius: 4px;
+    display: flex;
+    color: #777;
+    border-color: #ddd;
+    padding: 0px;
+}
+
+.pageBar li {
+    color: #337ab7;
+    float: left;
+    padding: 6px 12px;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    list-style: none;
+}
+
+.pageBar>li:first-child {
+    margin-left: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.pageBar>li:last-child {
+    margin-left: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.pageBar>li:hover {
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+.pageBar li:disabled {
+    color: #777;
+    cursor: not-allowed;
+    background-color: #fff;
+    border-color: #ddd;
+}
+
+input:invalid:required {
+    background-image: linear-gradient(to right, rgb(246, 237, 239), rgb(238, 244, 238));
+}
+
+input:invalid {
+    border: 3px dashed red;
+}
+
+input:valid {
+    border: 2px solid black;
+}

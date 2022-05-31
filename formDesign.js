@@ -11,7 +11,10 @@ let currentPage = 1;
 if ( keys.length > 0 ) 
 {
   let display = 0;
-  sortUsername(display);
+  if ( totalRecord.length > 1 )
+  {
+    sortUsername( display );
+  }
   if ( totalRecord.length % 5 != 0 )
   {
     totalPages = Math.trunc( ( totalRecord.length ) / 5 ) + 1;
@@ -56,11 +59,14 @@ if ( keys.length > 0 )
         iteration( j );
         
         eventPagination();
+        
       }
       
     }
+
   }
 deleteEvent ();
+      var listDel = document.querySelectorAll( '.deleteBtn' );
 } 
 // close display existing records
 const saveBtn = document.querySelector( '.saveBtn' );
@@ -96,6 +102,7 @@ userName = document.getElementById( "uname" ).value;
 emailId = document.getElementById( "email" ).value;   
   const wrongUsername = document.querySelector( '.invalidUser' );
   const errorEmail = document.querySelector( '.invalid-email-message' );
+ 
   if ( /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test( emailId ) )
   {
     console.log('Email is valid')
@@ -105,14 +112,14 @@ emailId = document.getElementById( "email" ).value;
     errorEmail.textContent = 'email is invalid';
     return;
   }
-  var userfound = formArray.find( function ( user, index )
-  {
-    if ( user.username == userName )
-    {
-           wrongUsername.textContent = 'Username Already Exist';
-      // return;
+  if ( SrNo > 1 ) {
+    for ( let i = 0; i < formArray.length; i++ ) {
+      if ( formArray[ i ].username == userName ) {
+        wrongUsername.textContent = 'Username Already Exist';
+        return;
+      }
     }
-})
+  }
    
   if ( title.length > 0  && firstName.length > 0 && lastName.length > 0
     && userName.length > 0 && emailId.length > 0 )
@@ -140,7 +147,18 @@ emailId = document.getElementById( "email" ).value;
   formArray.push( userObj );
   localStorage.setItem( formValidation, JSON.stringify( formArray ) ); 
   let display = 1;
-  sortUsername (display)
+     if ( formArray.length == 1 )
+  {
+       displayUser( SrNo, title, firstName, lastName, userName, emailId );
+   var listDel = document.querySelectorAll( '.deleteBtn' );    
+  }
+  else
+  {
+       sortUsername( display );
+      //  var listDel = document.querySelectorAll( '.deleteBtn' );
+
+  }
+  //  deleteEvent();
   if ( SrNo == 6 )
   {
     totalRecord = JSON.parse( localStorage.getItem( 'formValidation' ) )
@@ -153,6 +171,7 @@ emailId = document.getElementById( "email" ).value;
     listItems[ 0 ].style.cursor = 'not-allowed';
     
     eventPagination();
+    var listDel = document.querySelectorAll( '.deleteBtn' );
   }
   const listItems = document.querySelectorAll( 'li' );
   const list = document.querySelector( '.pageBar' );
@@ -173,7 +192,9 @@ emailId = document.getElementById( "email" ).value;
   document.getElementById( "lname" ).value = "";
   document.getElementById( "uname" ).value = "";
   document.getElementById( "email" ).value = "";
- deleteEvent ();
+//  deleteEvent ();
+  // var listDel = document.querySelectorAll( '.deleteBtn' );
+  // deleteEvent();
   } ); 
 
 
@@ -222,18 +243,28 @@ function displayUser(SrNo, title, firstName, lastName, userName, emailId)
                     </tr>
                 
 `;
+// var listDel = document.querySelectorAll( '.deleteBtn' );
+  // deleteEvent();
 }
-//
-function deleteEvent()
+function deleteEvent ()
+{
+  // var listItems = document.querySelectorAll( '.tableRow' );
+  var listDel = document.querySelectorAll( '.deleteBtn' );
+  for ( let i = 0; i < listDel.length; i++ )
+  {
+    
+    listDel[ i ].addEventListener( "click", (event) =>
     {
-  var listItems = document.querySelectorAll( '.tableRow' );
-  var list = document.querySelector( '.tableHead' );
+      
+      let deleteRec = parseInt( event.target.id );
+      console.log( 'record selcted for delete', deleteRec );
+       deleteRecord( deleteRec );
+      console.log( deleteRec );
+    } );
+    //  let display = 1; //  want to display
+    //  sortUsername( display );
+  }   
 
-  list.addEventListener( 'click', function ( event ) {
-    let deleteRec = event.target.id;
-    console.log( deleteRec );
-   
-  } );
 }
 function pagination ()
 {
@@ -343,6 +374,7 @@ var list = document.querySelector( '.pageBar' );
           displayUser( SrNo, title, firstName, lastName, userName, emailId );
           
         }
+     deleteEvent();
     if ( eventPage == 1 )
        
     {
@@ -408,6 +440,29 @@ function sortUsername (display)
       let emailId = totalRecord[ x ].emailid;
       // call display fuction to display user on screen
       displayUser( SrNo, title, firstName, lastName, userName, emailId );      
-    }    
-  }
+     } 
+    // deleteEvent(); 
+   }
+  // var listDel = document.querySelectorAll( '.deleteBtn' );
+  deleteEvent();
+}
+function deleteRecord( deleteRec )
+{
+    var totalRecord = JSON.parse( localStorage.getItem( 'formValidation' ) );
+    let temparray = [];
+    // temparray = totalRecord; //why do i need it if it is there before setItem
+     let formValidation = 'formValidation';
+  console.log( formValidation );
+    //Find index of specific object using findIndex method.    
+  objIndex = totalRecord.findIndex( ( obj => obj.SrNo == deleteRec ) );
+  if ( objIndex == -1 )
+  {
+    return
+    }
+  totalRecord.splice( objIndex, 1 );
+    temparray = totalRecord;
+  localStorage.setItem( formValidation, JSON.stringify( temparray ) ); 
+       let display = 1; //  want to display
+  sortUsername( display );
+  
 }

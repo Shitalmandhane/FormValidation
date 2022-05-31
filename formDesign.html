@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=>, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+        <title>Form Validation</title>
+        <link rel="stylesheet" href="formDesign.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="headTag">
+                <h2>Create New User</h2>
+            </div>
+            <div class="userSection">
+
+                <div class="title">
+                    <label for="title1">Title</label><br>
+                    <label for="Firstname">First Name</label><br>
+                    <label for="Lastname">Last Name</label><br>
+                    <label for="Username">Username*</label><br>
+                    <label for="Email ID*">Email ID*</label><br>
+                </div>
+                <div class="inputField">
+                    <select id="selecttitle" name="title type" placeholder="select title">
+                        <option value="">Please Choose...</option>
+                        <option> Mr.</option>
+                        <option> Ms.</option>
+                        <option>Mrs.</option>
+                        <option> Engg.</option>
+                        <option> CA</option>
+                    </select>
+                    <div class="firstName">
+                        <input type="text" id="fname" name="FirstName" placeholder="Enter First Name" required>
+                    </div>
+                    <div class="lastName">
+                        <input type="text" id="lname" name="LastName" placeholder="Enter Last Name" required>
+                    </div>
+                    <div class="userName">
+                        <input type="text" id="uname" name="UserName" placeholder="Enter UserName" required>
+                        <p class="invalidUser"></p>
+                    </div>
+                    <div class="emailId">
+                        <input type="text" id="email" name="EmailID" placeholder="Enter Email ID" required>
+                        <p class="invalid-email-message"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="buttonWrapper">
+                <button class="saveBtn">
+                    <div class="saveBtnimg">
+                        <img src="Image_folder/saveButtonimage.png">
+                        <p>Save</p>
+                    </div>
+                </button>
+                <button class="cancelBtn">
+                    <div class="cancelBtnimg">
+                        <img src="Image_folder/cancelButtonimg.png">
+                        <p>Cancel</p>
+                    </div>
+                </button>
+            </div>
+            <div>
+                <table class="titleName">
+                    <tr class="nameTag">
+                        <th>Sr.No.</th>
+                        <th>Title</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>UserName</th>
+                        <th>Email ID</th>
+                        <th> </th>
+                    </tr>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <ul class="pageBar">
+                <li>Previous</li>
+                <li>1</li>
+                <li>2</li>
+                <li>Next</li>
+            </ul>
+            <script src="formDesign.js"></script>
+    </body>
+
+</html>
